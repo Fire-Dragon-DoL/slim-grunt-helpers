@@ -9,7 +9,7 @@ how you require the gem) which will help you when setting up a pipeline with
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'slim-grunt-helpers', '~> 0.0.2'
+gem 'slim-grunt-helpers', '~> 0.0.3'
 ```
 
 And then execute:

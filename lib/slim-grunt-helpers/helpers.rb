@@ -24,7 +24,7 @@ module SlimGruntHelpers
       usemin.each do |link|
         text << "#{ link }\n"
       end
-      text << "\n<!-- endbuild -->"
+      text << "<!-- endbuild -->\n"
     end
 
     # Options:
@@ -41,7 +41,7 @@ module SlimGruntHelpers
       usemin.each do |link|
         text << "#{ link }\n"
       end
-      text << "\n<!-- endbuild -->"
+      text << "<!-- endbuild -->\n"
     end
     
   end
