@@ -1,5 +1,7 @@
-require "slim-grunt-helpers/version"
+require 'slim-grunt-helpers/version'
+require 'slim-grunt-helpers/helpers'
 
 module SlimGruntHelpers
-  # Your code goes here...
 end
+
+include SlimGruntHelpers::Helpers

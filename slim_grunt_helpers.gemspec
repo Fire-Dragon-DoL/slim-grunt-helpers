@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["francesco.belladonna@gmail.com"]
   spec.description   = %q{Small set of helpers that can be used in slim templates}
   spec.summary       = %q{Small set of helpers that can be used in slim templates}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/Fire-Dragon-DoL/slim-grunt-helpers"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
