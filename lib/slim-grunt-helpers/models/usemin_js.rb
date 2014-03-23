@@ -13,7 +13,11 @@ module SlimGruntHelpers
         def transform_link(link)
           text  = %Q{<script src="#{ link[:path] }"}
           link[:options].each do |key, value|
-            text << %Q{ #{ key }="#{ value }"}
+            if value == true
+              text << %Q{ #{ key }}
+            elsif value
+              text << %Q{ #{ key }="#{ value }"}
+            end
           end
           text << '></script>'
 
