@@ -9,7 +9,7 @@ how you require the gem) which will help you when setting up a pipeline with
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'slim-grunt-helpers', '~> 0.0.1'
+gem 'slim-grunt-helpers', '~> 0.0.2'
 ```
 
 And then execute:
@@ -49,9 +49,17 @@ there which are boring to type directly in Slim. The usage is simple:
 ```ruby
 == sg_usemin_css('application.css', alt: '.tmp') do |usemin|
   - usemin << 'styles/bootstrap.css'
-  - usemin << 'styles/main.css', 'data-customattr' => 'customdata'
+  - usemin.add 'styles/main.css', 'data-customattr' => 'customdata'
 ```
 
+**Note:** You can either use **&lt;&lt;** or `add`, I prefer the first one but if you want use two params,
+the only way to do it is in this way:
+```ruby
+- usemin.<<('param1', 'data-customattr' => 'customdata')
+```
+Which I consider quite horrible, so the method is aliased with `add`
+
+**Anyway!**  
 The first argument is required, and it's the `path` :
 
 ```html

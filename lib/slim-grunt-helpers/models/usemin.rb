@@ -13,6 +13,7 @@ module SlimGruntHelpers
       def <<(path, options={})
         @links << { path: path, options: base_options.merge(options) }
       end
+      alias_method :add, :<<
 
       def each
         @links.each { |link| yield(transform_link(link)) }
