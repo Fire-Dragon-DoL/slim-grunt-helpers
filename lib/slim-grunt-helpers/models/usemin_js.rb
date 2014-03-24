@@ -6,8 +6,6 @@ module SlimGruntHelpers
 
     class UseminJs < Usemin
 
-      BASE_OPTIONS = {}.freeze
-
       protected
 
         def transform_link(link)

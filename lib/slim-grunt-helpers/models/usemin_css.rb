@@ -8,6 +8,10 @@ module SlimGruntHelpers
 
       BASE_OPTIONS = { rel: 'stylesheet' }.freeze
 
+      def base_options
+        BASE_OPTIONS
+      end
+
       protected
 
         def transform_link(link)
@@ -15,7 +19,7 @@ module SlimGruntHelpers
           link[:options].each do |key, value|
             if value == true
               text << %Q{ #{ key }}
-            elsif value
+            elsif !value.nil? && value != false
               text << %Q{ #{ key }="#{ value }"}
             end
           end
