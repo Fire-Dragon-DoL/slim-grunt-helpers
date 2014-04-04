@@ -43,6 +43,10 @@ module SlimGruntHelpers
       end
       text << "<!-- endbuild -->\n"
     end
+
+    def sg_empty_href
+      'javascript:void(0);'
+    end
     
   end
 
