@@ -19,7 +19,7 @@ module SlimGruntHelpers
       alias_method :include, :<<
 
       def require(path, options={})
-        self.include(path, options) unless @links.include? path.to_s
+        self.include(path, options) unless file_already_included? path
       end
 
       def each
@@ -51,6 +51,13 @@ module SlimGruntHelpers
 
         def transform_link(link)
           raise NotImplementedError, 'This method must be implemented in child classes'
+        end
+
+      private
+
+        def file_already_included?(path)
+          path = path.to_s
+          @links.find { |link| link[:path] == path }
         end
 
     end
