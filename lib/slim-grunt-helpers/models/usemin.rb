@@ -1,3 +1,5 @@
+require 'pathname'
+
 module SlimGruntHelpers
 
   module Models
@@ -28,12 +30,18 @@ module SlimGruntHelpers
         BASE_OPTIONS
       end
 
-      def require_tree(root_path, pattern, options={})
-        Dir[root_path.join(pattern)].reject do |file|
+      def require_tree(root_path, pattern, relative=false, options={})
+        unless root_path.respond_to? :join
+          root_path = Pathname.new(root_path.to_s)
+        end
+        
+        Dir[root_path.join(pattern).to_s].reject do |file|
           File.directory? file
         end.each do |file|
-          file_name = file.to_s
-          file_name["#{ root_path }/"] = ''
+          file_name       = file.to_s
+          real_root_path  = root_path.to_s
+          real_root_path += '/' if relative
+          file_name[real_root_path] = ''
           
           self.require file_name, options
         end
