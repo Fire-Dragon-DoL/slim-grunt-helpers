@@ -12,16 +12,17 @@ module SlimGruntHelpers
 
     # Options:
     # - `alt` which allows to set alternate paths which usemin should look into
+    # - `absolute` which ensures all files are prepended with '/' when true
     def sg_usemin_css(path, options={})
       usemin  = SlimGruntHelpers::Models::UseminCss.new
-      options = { alt: nil }.merge!(options)
+      options = { alt: nil, absolute: false }.merge!(options)
 
       alt = ''
       alt = "(#{ options[:alt] })" unless options[:alt].nil?
 
       text  = "\n<!-- build:css#{ alt } #{ path } -->\n"
       yield(usemin)
-      usemin.each do |link|
+      usemin.each(options) do |link|
         text << "#{ link }\n"
       end
       text << "<!-- endbuild -->\n"
@@ -29,16 +30,17 @@ module SlimGruntHelpers
 
     # Options:
     # - `alt` which allows to set alternate paths which usemin should look into
+    # - `absolute` which ensures all files are prepended with '/' when true
     def sg_usemin_js(path, options={})
       usemin  = SlimGruntHelpers::Models::UseminJs.new
-      options = { alt: nil }.merge!(options)
+      options = { alt: nil, absolute: false }.merge!(options)
 
       alt = ''
       alt = "(#{ options[:alt] })" unless options[:alt].nil?
 
       text  = "\n<!-- build:js#{ alt } #{ path } -->\n"
       yield(usemin)
-      usemin.each do |link|
+      usemin.each(options) do |link|
         text << "#{ link }\n"
       end
       text << "<!-- endbuild -->\n"

@@ -14,8 +14,12 @@ module SlimGruntHelpers
 
       protected
 
-        def transform_link(link)
-          text  = %Q{<link href="#{ link[:path] }"}
+        def transform_link(link, options={})
+          link_path  = ''
+          link_path += '/' if options[:absolute]
+          link_path += link[:path].to_s
+
+          text  = %Q{<link href="#{ link_path }"}
           link[:options].each do |key, value|
             if value == true
               text << %Q{ #{ key }}

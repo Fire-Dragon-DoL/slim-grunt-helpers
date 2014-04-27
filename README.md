@@ -68,6 +68,7 @@ The first argument is required, and it's the `path` :
 ```
 
 The `:alt` argument is optional and it's the `alternate search path`.  
+The `:absolute` argument is optional and if true, it will append '/' in tags to file paths when printing html.  
 An object `usemin` will be yielded to the block which has only one method: **&lt;&lt;**.  
 This method requires first argument which is path to your css file (http path) and the second argument is a
 hash of options which are appended as attributes to the link tag. Notice that on `link` tag,
@@ -80,7 +81,6 @@ Additionally, notice that attributes with `nil` or `false` as value are not set 
 
 - `root_path` which is the path will be used as base directory (and **omitted in tags**)
 - `pattern` which is the pattern accepted by [Dir glob](http://ruby-doc.org/core-1.9.3/Dir.html#method-c-glob), used to search files
-- `relative` which if it's true, ensures file path won't start with `/` when printed in html
 - `options` which are directly passed to `require`
 
 ## Contributing
