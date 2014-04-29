@@ -64,7 +64,7 @@ Which I consider quite horrible, so the method is aliased with `add`
 The first argument is required, and it's the `path` :
 
 ```html
-&lt;!-- build:&lt;type&gt;(alternate search path) &lt;path&gt; --&gt;
+<!-- build:<type>(alternate search path) <path> -->
 ```
 
 The `:alt` argument is optional and it's the `alternate search path`.  
