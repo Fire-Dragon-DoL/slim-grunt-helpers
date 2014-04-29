@@ -81,7 +81,7 @@ Additionally, notice that attributes with `nil` or `false` as value are not set 
 
 - `root_path` which is the path will be used as base directory (and **omitted in tags**)
 - `pattern` which is the pattern accepted by [Dir glob](http://ruby-doc.org/core-1.9.3/Dir.html#method-c-glob), used to search files
-- `options` which are directly passed to `require`
+- `options` which accepts `:transform_ext` which will replace the file extension. Other options are directly passed to `require`
 
 ## Contributing
 

@@ -41,6 +41,13 @@ module SlimGruntHelpers
           file_name      = file.to_s
           real_root_path = "#{ root_path }/"
           file_name[real_root_path] = ''
+          transform_ext             = options.delete(:transform_ext)
+          unless transform_ext.nil?
+            transform_ext = ".#{ transform_ext }" unless transform_ext[0] == '.'
+
+            origin_ext = File.extname(file_name)
+            file_name[origin_ext] = transform_ext
+          end
           
           self.require file_name, options
         end
